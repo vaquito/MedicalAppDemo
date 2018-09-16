@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MedicalDemo.Entities.Json;
 
 namespace MedicalDemo.Entities.DataBase
 {
@@ -31,19 +32,20 @@ namespace MedicalDemo.Entities.DataBase
         /// <summary>
         /// Nombre de la alergia
         /// </summary>
-        [JsonProperty("nombre")]
+        [JsonProperty("nombre", Order = 1)]
         public string Nombre { get; set; }
 
         /// <summary>
         /// Fecha de alta de la alergia
         /// </summary>
-        [JsonProperty("fecha_alta")]
+        [JsonProperty("fecha_alta", Order = 2)]
+        [JsonConverter(typeof(FormatoFechaCustomConverter), "dd/MM/yy")]
         public DateTime FechaDeAlta { get; set; }
 
         /// <summary>
         /// Medicamento recomendado para la alergia
         /// </summary>
-        [JsonProperty("medicamento")]
+        [JsonProperty("medicamento", Order = 3)]
         public string Medicamento { get; set; }
 
     }

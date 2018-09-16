@@ -37,7 +37,7 @@ namespace MedicalDemo.Entities
         /// <summary>
         /// Objeto que contiene la información solicitada
         /// </summary>
-        [JsonProperty("payload")]
+        [JsonProperty("payload", Order = 3)]
         public T Payload { get;  set; }
 
     }

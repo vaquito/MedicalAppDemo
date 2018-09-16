@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MedicalDemo.Entities.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -48,25 +49,26 @@ namespace MedicalDemo.Entities.DataBase
         /// <summary>
         /// Numero o nombre del expediente, para uso del personal, no esta ligado con el ID del registro
         /// </summary>
-        [JsonProperty("no_expediente")]
+        [JsonProperty("no_expediente",Order = 1)]
         public string NumeroExpediente { get; set; }
 
         /// <summary>
         /// Fecha de la ultima consulta del paciente. 
         /// </summary>
-        [JsonProperty("fecha_ultima_consulta")]
+        [JsonProperty("fecha_ultima_consulta", Order = 2)]
+        [JsonConverter(typeof(FormatoFechaCustomConverter), "dd/MM/yy")]
         public DateTime? FechaUltimaConsulta { get; set; }
 
         /// <summary>
         /// tipo de Sangre del paciente
         /// </summary>
-        [JsonProperty("tipo_sangre")]
+        [JsonProperty("tipo_sangre", Order = 3)]
         public string TipoDeSangre { get; set; }
 
         /// <summary>
         /// Listado de Alergias diagnosticadas
         /// </summary>
-        [JsonProperty("alergias")]
+        [JsonProperty("alergias", Order = 4)]
         public IEnumerable<Alergia> Alergias { get; set; }
 
     }

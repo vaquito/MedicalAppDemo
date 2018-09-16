@@ -28,13 +28,13 @@ namespace MedicalDemo.Entities
         /// <summary>
         /// Codigo asignado a la respuesta
         /// </summary>
-        [JsonProperty("codigo")]
+        [JsonProperty("codigo", Order = 1)]
         public string Codigo { get; set; }
 
         /// <summary>
         /// Mensaje de Exito o Error
         /// </summary>
-        [JsonProperty("mensaje")]
+        [JsonProperty("mensaje", Order = 2)]
         public string Mensaje { get; set; }
 
 
