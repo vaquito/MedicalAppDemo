@@ -11,6 +11,8 @@ namespace MedicalDemo.Entities.DataBase
     {
         public ExpedienteMedico()
         {
+            Alergias = new List<Alergia>();
+
         }
 
         /// <summary>
@@ -19,14 +21,30 @@ namespace MedicalDemo.Entities.DataBase
         /// <param name="numeroExpediente">Numero de expediente interno</param>
         /// <param name="fechaUltimaConsulta">Utima consuta medica</param>
         /// <param name="tipoDeSangre">tipo de sangre de paciente</param>
-        /// <param name="alergias">Listado de alergias diagnosticadas <code>null</code> cuando no tiene alergias </param>
-        public ExpedienteMedico(string numeroExpediente, string fechaUltimaConsulta, string tipoDeSangre, IEnumerable<Alergia> alergias)
+        /// <param name="alergias">Listado de alergias diagnosticadas </param>
+        public ExpedienteMedico(string numeroExpediente, DateTime? fechaUltimaConsulta, string tipoDeSangre, IEnumerable<Alergia> alergias)
         {
             NumeroExpediente = numeroExpediente;
             FechaUltimaConsulta = fechaUltimaConsulta ?? throw new ArgumentNullException(nameof(fechaUltimaConsulta));
             TipoDeSangre = tipoDeSangre ?? throw new ArgumentNullException(nameof(tipoDeSangre));
             Alergias = alergias ?? throw new ArgumentNullException(nameof(alergias));
         }
+
+
+        /// <summary>
+        /// Crea un expediente medico
+        /// </summary>
+        /// <param name="numeroExpediente">Numero de expediente interno</param>
+        /// <param name="fechaUltimaConsulta">Utima consuta medica</param>
+        /// <param name="tipoDeSangre">tipo de sangre de paciente</param>
+        public ExpedienteMedico(string numeroExpediente, DateTime? fechaUltimaConsulta, string tipoDeSangre)
+        {
+            NumeroExpediente = numeroExpediente;
+            FechaUltimaConsulta = fechaUltimaConsulta ?? throw new ArgumentNullException(nameof(fechaUltimaConsulta));
+            TipoDeSangre = tipoDeSangre ?? throw new ArgumentNullException(nameof(tipoDeSangre));
+            Alergias = new List<Alergia>();
+        }
+
         /// <summary>
         /// Numero o nombre del expediente, para uso del personal, no esta ligado con el ID del registro
         /// </summary>
@@ -37,7 +55,7 @@ namespace MedicalDemo.Entities.DataBase
         /// Fecha de la ultima consulta del paciente. 
         /// </summary>
         [JsonProperty("fecha_ultima_consulta")]
-        public string FechaUltimaConsulta { get; set; }
+        public DateTime? FechaUltimaConsulta { get; set; }
 
         /// <summary>
         /// tipo de Sangre del paciente

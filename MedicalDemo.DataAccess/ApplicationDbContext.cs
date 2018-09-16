@@ -6,6 +6,26 @@ namespace MedicalDemo.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
+
+
+
+
+
+        private readonly string connectionString;
+        public ApplicationDbContext(string connectionString) : base()
+        {
+            this.connectionString = connectionString;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySQL(connectionString);
+            }
+        }
+
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
 
@@ -19,10 +39,7 @@ namespace MedicalDemo.DataAccess
         public DbSet<Alergia> Alergias { get; set; }
         public DbSet<ExpedienteMedico> ExpedientesMedicos { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
-
+      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

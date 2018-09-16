@@ -10,6 +10,24 @@ namespace MedicalDemo.Entities.DataBase
     /// </summary>
     public class Alergia : EntidadBase
     {
+        public Alergia()
+        {
+        }
+
+
+        /// <summary>
+        /// Crea una alergia
+        /// </summary>
+        /// <param name="nombre">Nombre de la alergia</param>
+        /// <param name="fechaDeAlta"> Fecha de alta de la alergia</param>
+        /// <param name="medicamento">Medicamento recomendado para la alergia</param>
+        public Alergia(string nombre, DateTime fechaDeAlta, string medicamento)
+        {
+            Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
+            FechaDeAlta = fechaDeAlta;
+            Medicamento = medicamento ?? throw new ArgumentNullException(nameof(medicamento));
+        }
+
         /// <summary>
         /// Nombre de la alergia
         /// </summary>

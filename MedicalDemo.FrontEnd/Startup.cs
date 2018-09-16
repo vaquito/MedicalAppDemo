@@ -50,6 +50,9 @@ namespace MedicalDemo.FrontEnd
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            Business.DbInitializer.init(Configuration.GetConnectionString("ApplicationDb"));
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
