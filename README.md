@@ -2,7 +2,7 @@
 
 Demo .net core 2.0 con MySQL, Angular y EF core. 
 
-## configuración: 
+## configuración 
 
 1. tener un motor de mySQL local. 
 
@@ -10,9 +10,17 @@ Demo .net core 2.0 con MySQL, Angular y EF core.
 
 3. en la primera ejecución la aplicación generara la base de datos con datos de ejemplo. 
 
-el deploy se puede generar tanto en Visual studio 2017 community como por medio del CLI de .net core con el comando dotnet publish --output /build_output
-sobre el proyecto FrontEnd. guía -> https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x
+## Compilar
 
+el compilado final se puede generar tanto en Visual studio 2017 community como por medio del CLI de .net core con el comando 
+
+```
+dotnet publish --output /C:\build_output
+```
+ejecutado sobre el proyecto FrontEnd. guía -> https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x
+
+
+## Deploy
 con la compilación lista debemos seguir la guía de instalación para IIS/Windows o para Apache/Linux según sea el caso
 
 IIS
