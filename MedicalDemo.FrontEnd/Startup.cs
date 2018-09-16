@@ -2,11 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MedicalDemo.Business;
+using MedicalDemo.Business.Interfaces;
+using MedicalDemo.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace MedicalDemo.FrontEnd
 {
@@ -23,6 +29,22 @@ namespace MedicalDemo.FrontEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Agregamos la dependencia de base de datos
+            services.AddDbContext<ApplicationDbContext>(options =>
+                  options.UseMySQL(Configuration.GetConnectionString("ApplicationDb"))
+          );
+
+            //Hacemos el map de las dependencias de repositorios
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            //Hacemos el map de las dependencias de Servicios
+            services.AddScoped(typeof(Business.IExpedienteMedicoService), typeof(Business.ExpedienteMedicoService));
+
+            //Activamos el versionador de los controles
+            services.AddApiVersioning();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

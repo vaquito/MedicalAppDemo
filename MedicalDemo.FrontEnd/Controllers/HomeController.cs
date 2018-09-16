@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalDemo.FrontEnd.Controllers
 {
+    //Version Neutra para todos los controladores que no requieren Version
+    [ApiVersionNeutral]
     public class HomeController : Controller
     {
         public IActionResult Index()
