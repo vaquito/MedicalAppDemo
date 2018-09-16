@@ -5,12 +5,20 @@ using System.Text;
 
 namespace MedicalDemo.Entities
 {
+    /// <summary>
+    /// Respuesta base de cualquier JSON de nuestra api
+    /// </summary>
     public abstract class PayloadBase
     {
         protected PayloadBase()
         {
         }
 
+        /// <summary>
+        /// crea un payload base con un codigo y un mensaje
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <param name="mensaje"></param>
         protected PayloadBase(string codigo, string mensaje)
         {
             Codigo = codigo ?? throw new ArgumentNullException(nameof(codigo));
