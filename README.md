@@ -21,11 +21,14 @@ ejecutado sobre el proyecto FrontEnd. guía -> https://docs.microsoft.com/en-us/
 
 
 ## Deploy
-con la compilación lista debemos seguir la guía de instalación para IIS/Windows o para Apache/Linux según sea el caso
+con la compilación lista debemos seguir la guía de instalación para IIS/Windows, para Apache/Linux o Docker según sea el caso
 
-IIS
+### IIS
 https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-2.1&tabs=aspnetcore2x
 
-Apache
+### Apache
 https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-apache?view=aspnetcore-2.1&tabs=aspnetcore2x
+
+### Docker
+https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/?view=aspnetcore-2.1
 
