@@ -2,7 +2,7 @@
 
 Demo .net core 2.0 con MySQL, Angular y EF core. 
 
-configuración: 
+## configuración: 
 
 1. tener un motor de mySQL local. 
 
